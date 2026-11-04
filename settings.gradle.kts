@@ -1,0 +1,1 @@
+rootProject.name = "P1_BankingApp_Group18"
