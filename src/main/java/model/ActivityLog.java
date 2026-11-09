@@ -1,8 +1,7 @@
 package model;
 
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedList;
+import java.sql.Timestamp;
 
 public class ActivityLog {
     LinkedList<Node> activityLog = new LinkedList<>();
@@ -10,9 +9,9 @@ public class ActivityLog {
         int ID;
         String details;
         String activity;
-        String date;
+        Timestamp date;
         actionType actionType;
-        public Node(int ID, String details, String activity, String date, actionType actionType){
+        public Node(int ID, String details, String activity, Timestamp date, actionType actionType){
             this.ID = ID;
             this.details = details;
             this.activity = activity;
@@ -25,11 +24,11 @@ public class ActivityLog {
         }
     }
 
-    public void autoActivity(){
+    public void autoActivity(){ // STILL NEED
 
     }
 
-    public void logActivity(int ID, String details, String activity, String date, actionType actionType){
+    public void logActivity(int ID, String details, String activity, Timestamp date, actionType actionType){
         activityLog.add(new Node(ID, details, activity, date, actionType));
     }
 
@@ -104,9 +103,10 @@ public class ActivityLog {
 
     public static void main(String[] args){
         ActivityLog log = new ActivityLog();
-        log.logActivity(12, "bought stuff", "activity here", "1-12-1997", actionType.WIRE);
-        log.logActivity(14, "sold stuff", "activity here", "1-20-1997", actionType.WIRE);
-        log.logActivity(14, "looking at stuff", "activity here", "1-20-1997", actionType.VIEW);
+        Timestamp time = new Timestamp(System.currentTimeMillis());
+        log.logActivity(12, "bought stuff", "activity here", time, actionType.WIRE);
+        log.logActivity(14, "sold stuff", "activity here", time, actionType.WIRE);
+        log.logActivity(14, "looking at stuff", "activity here", time, actionType.VIEW);
         log.displayLog();
         log.filter(actionType.VIEW);
         log.filter(actionType.WIRE);
