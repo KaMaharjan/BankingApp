@@ -7,8 +7,10 @@ public class BankAccount {
     }
 
     private final Customer customer;
-    private Type type;
+    private final Type type;
     private double balance;
+    private List<Transaction> transactionHistory;
+    public boolean isFrozen;
 
     public BankAccount(Customer customer, String type) {
         this.customer = customer;
@@ -18,5 +20,15 @@ public class BankAccount {
             default ->
                 throw new IllegalArgumentException("account %s is not valid: should be either 'checking' or 'savings'");
         };
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+    public double getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }
