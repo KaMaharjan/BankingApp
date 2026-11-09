@@ -1,20 +1,20 @@
 package model;
 
 import java.util.Date;
-import java.util.Optional;
+import java.util.List;
 
-public class AccountNote {
-    private enum Category {
+public record AccountNote(
+        List<Category> categoryTags,
+        long bankAccountId,
+        long authorId,
+        String note,
+        Date timestamp,
+        Long transactionId
+) {
+    public enum Category {
         GENERAL,
         WIRE_TRANSFER,
         SUSPICIOUS_ACTIVITY,
         CUSTOMER_CONTACT
     }
-
-    private long customerAccountId;
-    private long authorEmployeeId;
-    private Category category;
-    private String note;
-    private Date timestamp;
-    private Optional<Long> transactionId;
 }
