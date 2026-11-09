@@ -1,7 +1,7 @@
 package model;
 
 import java.util.LinkedList;
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class ActivityLog {
     LinkedList<Node> activityLog = new LinkedList<>();
@@ -9,9 +9,9 @@ public class ActivityLog {
         int ID;
         String details;
         String activity;
-        Timestamp date;
+        Date date;
         actionType actionType;
-        public Node(int ID, String details, String activity, Timestamp date, actionType actionType){
+        public Node(int ID, String details, String activity, Date date, actionType actionType){
             this.ID = ID;
             this.details = details;
             this.activity = activity;
@@ -28,7 +28,7 @@ public class ActivityLog {
 
     }
 
-    public void logActivity(int ID, String details, String activity, Timestamp date, actionType actionType){
+    public void logActivity(int ID, String details, String activity, Date date, actionType actionType){
         activityLog.add(new Node(ID, details, activity, date, actionType));
     }
 
@@ -84,7 +84,7 @@ public class ActivityLog {
         System.out.println(sb.toString());
     }
 
-    public void filter(String date){
+    public void filter(Date date){
         System.out.println("Filtering for date: " + date + ".");
         StringBuilder sb = new StringBuilder();
         for(Node n : activityLog){
@@ -103,15 +103,15 @@ public class ActivityLog {
 
     public static void main(String[] args){
         ActivityLog log = new ActivityLog();
-        Timestamp time = new Timestamp(System.currentTimeMillis());
-        log.logActivity(12, "bought stuff", "activity here", time, actionType.WIRE);
-        log.logActivity(14, "sold stuff", "activity here", time, actionType.WIRE);
-        log.logActivity(14, "looking at stuff", "activity here", time, actionType.VIEW);
+        Date d =  new Date();
+        log.logActivity(12, "bought stuff", "activity here", d, actionType.WIRE);
+        log.logActivity(14, "sold stuff", "activity here", d, actionType.WIRE);
+        log.logActivity(14, "looking at stuff", "activity here", d, actionType.VIEW);
         log.displayLog();
         log.filter(actionType.VIEW);
         log.filter(actionType.WIRE);
         log.filter(actionType.CREATE);
         log.filter(12);
-        log.filter("1-20-1997");
+        log.filter(d);
     }
 }

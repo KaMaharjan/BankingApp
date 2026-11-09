@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class BankAccount {
     private enum Type {
         CHECKING,
@@ -30,5 +32,19 @@ public class BankAccount {
     }
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+    public void deposit(double money, BankAccount target){
+        target.setBalance(target.getBalance() + money);
+    }
+    public void withdraw(double money, BankAccount target){
+        if(0 < (target.getBalance() - money)){ // implement overdraft prevention
+            // do something, print/error?
+            return;
+        }
+        target.setBalance(target.getBalance() - money);
+    }
+    public void transfer(BankAccount source, BankAccount target, double amount){
+        withdraw(amount, source);
+        deposit(amount, target);
     }
 }

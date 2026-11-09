@@ -12,4 +12,6 @@ public class Customer extends User {
 
     public List<BankAccount> getAccounts() { return this.bankAccounts; }
     public List<AccountNote> accountNotes() { return this.accountNotes; }
+
+
 }
