@@ -1,6 +1,9 @@
 package model;
 
 public class User {
+    public record Name(String firstName, String lastName) {}
+    public record Credentials(String username, String password) {}
+
     private final long id;
     private final Name name;
     private final Credentials credentials;
