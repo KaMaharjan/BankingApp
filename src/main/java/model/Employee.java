@@ -4,33 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Employee extends User{
-    private List<BankAccount> accountList;
 
     public Employee(long id, Name name, Credentials credentials, List<BankAccount> accounts) {
         super(id, name, credentials);
-        accountList = accounts;
     }
-
-    public List<BankAccount> getAccounts() { return accountList; }
 
     public Customer lookUp(int id){
-        for(BankAccount account : accountList){
-            if(account.getCustomer().getId() == id){
-                return account.getCustomer();
-            }
-        }
+        // have to wait until customer list is implemented
         return null; // Throw an error later, about not finding customer account
-    }
-
-    public void wireTransfer(String note, Customer from, Customer to) {
 
     }
 
-    public void freeze(String note, Customer target){
+    public void wireTransfer(AccountNote note, Customer from, Customer to) {
 
     }
 
-    public void unfreeze(String note, Customer target){
+    public void freeze(AccountNote note, Customer target){
+
+    }
+
+    public void unfreeze(AccountNote note, Customer target){
 
     }
 
