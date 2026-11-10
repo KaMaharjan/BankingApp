@@ -36,8 +36,8 @@ public class Employee extends User{
         Credentials adm = new Credentials("admin", "pass");
         Customer c = new Customer(12, n, cr);
         Customer c2 = new Customer(15, n2, cr2);
-        BankAccount b1 = new BankAccount(c, "checking");
-        BankAccount b2 = new BankAccount(c2, "savings");
+        BankAccount b1 = new BankAccount(c,1,"checking");
+        BankAccount b2 = new BankAccount(c2, 2, "savings");
         List<BankAccount> bankList = new ArrayList<>();
         bankList.add(b1);
         bankList.add(b2);
