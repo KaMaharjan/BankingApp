@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:16            # pin the version, not "latest"
+    image: postgres:18            # pin the version, not "latest"
     environment:
       POSTGRES_DB: ${PG_DB}
       POSTGRES_USER: ${PG_USER}
@@ -11,7 +11,7 @@ services:
       - ./db/postgres:/docker-entrypoint-initdb.d:ro   # runs .sql files on first start
 
   mongo:
-    image: mongo:7
+    image: mongo:9.0.4
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
