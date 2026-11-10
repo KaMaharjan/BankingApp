@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:16            # pin the version, not "latest"
+    environment:
+      POSTGRES_DB: ${PG_DB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/postgres:/docker-entrypoint-initdb.d:ro   # runs .sql files on first start
+
+  mongo:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB}
+    ports: ["27017:27017"]
+    volumes:
+      - mongodata:/data/db
+      - ./db/mongo:/docker-entrypoint-initdb.d:ro      # runs .js files on first start
+
+volumes:
+  pgdata:
+  mongodata:
