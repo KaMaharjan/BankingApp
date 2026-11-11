@@ -8,8 +8,7 @@ import java.util.Optional;
 
 public interface AccountNoteDAO {
     AccountNote create(AccountNote accountNote);
-    List<AccountNote> findByTag(String tag);
-    Optional<AccountNote> retrieve(AccountNote accountNote);
+    List<AccountNote> findByIdAndTag(long id, String tag);
     List<AccountNote> filter(AccountNote.Category category);
     List<AccountNote> filter(long id);
     List<AccountNote> filter(Date date);

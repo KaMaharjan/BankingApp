@@ -9,7 +9,6 @@ import java.util.Optional;
 
 public interface ActivityLogDAO {
     ActivityLog create(ActivityLog activityLog);
-    Optional<ActivityLog> retrieve(ActivityLog activityLog); // change?
     List<ActivityLog> filter(ActivityLog.actionType actionType);
     List<ActivityLog> filter(int id); // change?
     List<ActivityLog> filter(Date date);
