@@ -8,7 +8,8 @@ public class DatabaseConnection {
         String url = "jdbc:postgresql://localhost:5432/BankingApp";
         String username = "postgres";
         String password = "1234";
-        return DriverManager.getConnection(url, username, password);}
+        return DriverManager.getConnection(url, username, password);
+    }
 
     public void display(){
         String sql = "SELECT * FROM public.customers";
