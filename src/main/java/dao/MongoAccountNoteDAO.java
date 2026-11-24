@@ -1,12 +1,7 @@
 package dao;
 
-import static com.mongodb.client.model.Filters.eq;
-
-import org.bson.Document;
-
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import model.AccountNote;
@@ -43,7 +38,7 @@ public class MongoAccountNoteDAO implements AccountNoteDAO {
     }
 
     @Override
-    public List<AccountNote> filter(AccountNote.Category category) {
+    public List<AccountNote> filter(String tag) {
         return List.of();
     }
 

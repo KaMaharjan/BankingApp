@@ -10,7 +10,7 @@ public interface AccountNoteDAO {
     AccountNote create(AccountNote accountNote);
     List<AccountNote> findByTag(String tag);
     Optional<AccountNote> retrieve(AccountNote accountNote);
-    List<AccountNote> filter(AccountNote.Category category);
+    List<AccountNote> filter(String tag);
     List<AccountNote> filter(long id);
     List<AccountNote> filter(Date date);
     void update(AccountNote accountNote);
