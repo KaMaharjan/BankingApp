@@ -5,6 +5,7 @@ Covers JetBrains IDEs: IntelliJ, GoLand, RubyMine, PhpStorm, AppCode, PyCharm, C
 build/
 
 build/
+.env
 
 # User-specific stuff
 .idea/**/workspace.xml
