@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AccountNoteDAO {
-    AccountNote create(AccountNote accountNote);
+    void create(AccountNote accountNote);
     Optional<AccountNote> retrieve(AccountNote accountNote);
     List<AccountNote> filter(long id);
     List<AccountNote> filter(String tag);
